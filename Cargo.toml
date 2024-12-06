@@ -1,0 +1,10 @@
+[workspace]
+resolver = "2"
+
+members = ["day-*"]
+default-members = ["day-*"]
+
+[workspace.dependencies]
+divan =  "0.1.17"
+code-timing-macros = { version = "0.0.5", features = ["release"] }
+regex = "1.11.1"
