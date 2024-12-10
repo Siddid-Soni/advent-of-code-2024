@@ -47,7 +47,6 @@ pub fn process<P>(filename: P) -> usize where P: AsRef<Path>  {
             sum += fid * x as usize;
         }
     }
-
     sum
 }
 

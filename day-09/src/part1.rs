@@ -19,11 +19,11 @@ pub fn process<P>(filename: P) -> usize where P: AsRef<Path>  {
     j = (aloc.len() - 1) as u32;
     for i in 0..aloc.len() {
         if i==j as usize {break}
-        if aloc[i]==46 && aloc[j as usize]!=46 {
+        if aloc[i]==b'.' as u32 && aloc[j as usize]!=b'.' as u32 {
             aloc.swap(i, j as usize);
             j-=1;
-        } else if aloc[i]==46 && aloc[j as usize]==46 {
-            while aloc[j as usize] == 46 {
+        } else if aloc[i]==b'.' as u32 && aloc[j as usize]==b'.' as u32 {
+            while aloc[j as usize] == b'.' as u32 {
                 j-=1;
             }
             aloc.swap(i, j as usize);

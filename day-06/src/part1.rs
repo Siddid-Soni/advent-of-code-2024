@@ -13,7 +13,7 @@ pub fn process<P>(filename: P) -> usize where P: AsRef<Path>  {
     let mut c = 0;
     'outer: for i in 0..rows {
         for j in 0..cols {
-            if grid[i][j] == 94 {
+            if grid[i][j] == b'^' {
                 (r,c) = (i,j);
                 break 'outer;
             }
@@ -27,7 +27,7 @@ pub fn process<P>(filename: P) -> usize where P: AsRef<Path>  {
         seen.insert((r,c));
         if r as i32 + dr < 0 || r as i32 + dr >= rows as i32 || c as i32 + dc < 0 || c as i32 + dc >= cols as i32 { break }
         
-        if grid[(r as i32 + dr) as usize][(c as i32 + dc) as usize] == 35 {
+        if grid[(r as i32 + dr) as usize][(c as i32 + dc) as usize] == b'#' {
             std::mem::swap(&mut dr, &mut dc);
             dc *= -1;
         } else {

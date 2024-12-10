@@ -11,7 +11,7 @@ pub fn process<P>(filename: P) -> usize where P: AsRef<Path>  {
     let mut start = (0,0);
     for row in 0..H {
         for col in 0..W {
-            if grid[row][col] == 94 {
+            if grid[row][col] == b'^' {
                 start = (row, col);
             }
         }
@@ -39,7 +39,7 @@ pub fn process<P>(filename: P) -> usize where P: AsRef<Path>  {
                 return false;
             }
             
-            if grid[r2 as usize][c2 as usize] == 35 {
+            if grid[r2 as usize][c2 as usize] == b'#' {
                 dir = (dir+1)%4;
             } else {
                 me = (r2 as usize,c2 as usize);
@@ -52,7 +52,7 @@ pub fn process<P>(filename: P) -> usize where P: AsRef<Path>  {
         let mut me = start;
 
         loop {
-            grid[me.0][me.1] = 88;
+            grid[me.0][me.1] = b'X';
 
             let r2 = me.0 as i32 + dirs[dir].0;
             let c2 = me.1 as i32 + dirs[dir].1;
@@ -61,7 +61,7 @@ pub fn process<P>(filename: P) -> usize where P: AsRef<Path>  {
                 break;
             }
             
-            if grid[r2 as usize][c2 as usize] == 35 {
+            if grid[r2 as usize][c2 as usize] == b'#' {
                 dir = (dir+1)%4;
             } else {
                 me = (r2 as usize,c2 as usize);
@@ -73,12 +73,12 @@ pub fn process<P>(filename: P) -> usize where P: AsRef<Path>  {
     let mut count = 0;
     for row in 0..H {
         for col in 0..W {
-            if grid[row][col]!=88 {continue}
-            grid[row][col] = 35;
+            if grid[row][col]!=b'X' {continue}
+            grid[row][col] = b'#';
             if solve(&grid) {
                 count+=1;
             }
-            grid[row][col] = 46;
+            grid[row][col] = b'.';
         }
     }
     count
