@@ -7,10 +7,9 @@ pub fn process<P>(filename: P) -> u32 where P: AsRef<Path>  {
     fn dfs(r: i32, c: i32, next: i32, grid: &Vec<Vec<i32>>, visited: &mut Vec<bool>) -> u32 {
         if !(0<=r && r<grid.len() as i32) || !(0<=c && c<grid[0].len() as i32) || grid[r as usize][c as usize] != next {return 0}
         if next == 9 && !visited[(r * grid[0].len() as i32 + c) as usize] {
-            visited[(r * grid[0].len() as i32 + c) as usize] = true; 
+            visited[(r * grid[0].len() as i32 + c) as usize] = true;
             return 1;
         }
-
         
         dfs(r+1, c, next+1, &grid, visited) + dfs(r-1, c, next+1, &grid, visited) 
                 + dfs(r, c+1, next+1, &grid, visited) + dfs(r, c-1, next+1, &grid, visited)
