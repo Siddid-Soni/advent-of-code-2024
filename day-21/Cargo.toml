@@ -1,0 +1,15 @@
+[package]
+name = "day-21"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+code-timing-macros.workspace = true
+
+[dev-dependencies]
+divan.workspace = true
+
+[[bench]]
+name = "day-21-bench"
+path = "benches/benchmarks.rs"
+harness = false
