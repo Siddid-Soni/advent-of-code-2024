@@ -33,18 +33,18 @@ pub fn process<P>(filename: P) -> u32 where P: AsRef<Path>  {
             best_iter = i;
         }
     }
-    let mut grid = vec![vec!['.';W as usize];H as usize];
-    let mut result:Vec<(i32,i32)>  = vec![];
-    for x in robots.iter() {
-        let (px, py, vx, vy) = (x[0], x[1], x[2], x[3]);
-        result.push(((px+vx*best_iter).rem_euclid(W), (py+vy*best_iter).rem_euclid(H)));
-    }
-    for (px, py) in result {
-        grid[py as usize][px as usize] = '@';
-    }
-    for row in grid.iter() {
-        println!("{}", row.iter().collect::<String>());
-    }
+    // let mut grid = vec![vec!['.';W as usize];H as usize];
+    // let mut result:Vec<(i32,i32)>  = vec![];
+    // for x in robots.iter() {
+    //     let (px, py, vx, vy) = (x[0], x[1], x[2], x[3]);
+    //     result.push(((px+vx*best_iter).rem_euclid(W), (py+vy*best_iter).rem_euclid(H)));
+    // }
+    // for (px, py) in result {
+    //     grid[py as usize][px as usize] = '@';
+    // }
+    // for row in grid.iter() {
+    //     println!("{}", row.iter().collect::<String>());
+    // }
     best_iter as u32
 }
 

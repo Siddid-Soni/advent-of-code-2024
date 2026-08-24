@@ -28,7 +28,6 @@ pub fn process() -> Vec<u32> {
         }
         pointer += 2;
     }
-    println!("{:?}", output);
     output
 }
 

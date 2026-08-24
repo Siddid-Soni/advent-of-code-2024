@@ -14,3 +14,8 @@ fn part1() {
 fn part2() {
     part2::process("input2.txt");
 }
+
+#[divan::bench]
+fn part2_2() {
+    part2_2::process("input2.txt");
+}

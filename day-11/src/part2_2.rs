@@ -7,6 +7,7 @@ pub fn process<P>(filename: P) -> u64 where P: AsRef<Path>  {
     for i in 0..stones.len() {
         *v.entry(stones[i]).or_insert(0) += 1;
     }
+    
     for _ in 0..75 {
         let mut new_v: HashMap<u64,u64> = HashMap::new();
 
